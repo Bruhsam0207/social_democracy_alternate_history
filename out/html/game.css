@@ -537,7 +537,7 @@ table {
 }
 
 /* Styles for parties */
-.seat.CPI(ML) {
+.seat.CPI(M) {
     fill: #8B0000;
 }
 .seat.INC {
@@ -548,7 +548,7 @@ table {
 .seat.DMK {
     fill: #DCCA4A;
 }
-.seat.CPI(M) {
+.seat.CPI(ML) {
     fill: #000;
 }
 .seat.CPI {
