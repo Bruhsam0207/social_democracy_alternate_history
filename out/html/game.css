@@ -538,36 +538,39 @@ table {
 
 /* Styles for parties */
 .seat.CPI(M) {
-    fill: #8B0000;
+    fill: #BB0A1E;
 }
 .seat.INC {
-    fill: #E3000F;
+    fill: #00FFFF;
     stroke: var(--border-color);
     stroke-width: 1.5px;
 }
 .seat.DMK {
-    fill: #DCCA4A;
+    fill: #FFA590;
 }
 .seat.CPI(ML) {
-    fill: #000;
+    fill: #800000;
 }
 .seat.CPI {
-    fill: #69A2BE;
+    fill: #DC143C;
 }
 .seat.JD {
-    fill: #D5AC27;
+    fill: #507D2A;
 }
 .seat.other {
     fill: #909090;
 }
 .seat.TDP {
-    fill: #3F7BC1;
+    fill: #FF0300;
 }
 .seat.BJP {
-    fill: #954B00;
+    fill: #FF7722;
 }
 .seat.CSP {
-    fill: #C40000;
+    fill: #90EE90;
+}
+.seat.LF+ {
+    fill: #CC1100;
 }
 
 .tooltip-text {
