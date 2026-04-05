@@ -16,13 +16,13 @@ function addMonths(date, months) {
 d3.linegraph = function(noTicks, noDots, parties, partyColors, partyNames, dataMax, dataMin, additionalMonths) {
     /* params */
     if (!parties) {
-        parties = ['spd', 'kpd', 'ddp', 'z', 'dvp', 'dnvp', 'nsdap', 'other'];
+        parties = ['inc', 'cpim', 'dmk', 'cpiml', 'jd', 'tdp', 'bjp', 'other'];
     }
     if (!partyColors) {
-        partyColors = {'spd': '#E3000F', 'kpd': '#8B0000', 'ddp': '#DCCA4A', 'z': '#000', 'dvp': '#D5AC27', 'dnvp': '#3f7bc1', 'nsdap': '#954B00', 'other': '#a0a0a0'};
+        partyColors = {'inc': '#00FFFF', 'cpim': '#BB0A1E', 'dmk': '#FFA590', 'cpiml': '#800000', 'jd': '#50702A', 'tdp': '#FF0300', 'bjp': '#FF7722', 'other': '#a0a0a0'};
     }
     if (!partyNames) {
-        partyNames = {'spd': 'SPD', 'kpd': 'KPD', 'ddp': 'DDP', 'z': 'Z + BVP', 'dvp': 'DVP', 'dnvp': 'DNVP', 'nsdap': 'NSDAP', 'other': 'Others'};
+        partyNames = {'inc': 'INC+CSP', 'cpim': 'CPI(M)+CPI+LF+', 'dmk': 'DMK', 'cpiml': 'CPI(ML)', 'jd': 'JD', 'tdp': 'TDP', 'bjp': 'BJP', 'other': 'Others'};
     }
     if (!additionalMonths) {
         additionalMonths = 10;
