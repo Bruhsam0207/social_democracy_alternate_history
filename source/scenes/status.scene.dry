@@ -20,12 +20,12 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+INC position: [? if inc_toleration : toleration ?][? if inc_in_government : in government - ?][? if inc_toleration == 0 and inc_in_government == 0 and inc_caretaker == 0 : opposition ?][? if inc_caretaker : caretaker government ?]
+[? if in_mahagathbandhan and inc_in_government: Mahagathbandhan ?][? if in_secular_coalition and inc_in_government: Secular Coalition ?][? if in_popular_front and inc_in_government: Popular Front ?][? if in_left_front and inc_in_government: Socialist Front ?][? if in_inc_majority and inc_in_government: INC majority ?][? if in_minority_government and inc_in_government: minority government ?][? if in_emergency_government and inc_in_government: emergency government ?]
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
+[? if inc_in_government and not in_inc_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if inc_in_government and (in_left_front or in_popular_front): CPIM coalition dissent: [+ cpim_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
@@ -33,29 +33,31 @@ Internal dissent: [+ dissent_percent : dissent +]
 
 President: [+ president +]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+Prime Minister: [+ prime_minister +] ([+ prime_minister_party +])
 
 Reichstag composition:
 
 # 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
-[? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
+{!<span class="tooltip-text" title="Indian National Congress (Indira)">INC</span>!}: [+ inc_r +]%
+[? if csp_formed and csp_r > 0: CSP: [+ csp_r +]% ?]
 # 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
+{!<span class="tooltip-text" title="Communist Party of India(Marxist-Leninist)">CPI(ML)</span>!}: [+ cpiml_r +]%
 # 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
+{!<span class="tooltip-text" title="Communist Party of India (Marxist) + Communist Party of India">CPIM+CPI</span>!}: [+ cpim_r +]%
 # 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_r +]%
+{!<span class="tooltip-text" title="Dravida Munnetra Kazhagam">!}[? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]{!</span>!}: [+ dmk_r +]%
 # 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_r +]%
+{!<span class="tooltip-text" title="Janata Dal">JD</span>!}: [+ jd_r +]%
 # 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
+{!<span class="tooltip-text" title="Telugu Desam Party">TDP</span>!}: [+ tdp_r +]%
 # 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_r +]%
-# 1928: 9, 1930: 10
+{!<span class="tooltip-text" title="Bharatiya Janata Party">BJP</span>!}: [+ bjp_r +]%
+# 1928: 0, 1930: 1
+{!<span class="tooltip-text" title="Fringe Communist Parties">LF+</span>!}: [+ lf_r +]%
+# 1928: 9, 1930: 9
 Others: [+ other_r +]%
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+[? if inc_in_government = 1 : Budget: [+ budget +] ?]
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
@@ -76,21 +78,23 @@ Economic growth: [+ economic_growth_2 +]%
 = Inter-party Relations
 
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
+{!<span class="tooltip-text" title="Communist Party of India (Marxist-Leninist)">CPIML</span>!}: [+ cpiml_relation : relationships +]
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+{!<span class="tooltip-text" title="Dravida Munnetra Kazhagam">!}[? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]{!</span>!}: [+ dmk_relation : relationships +]
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
+{!<span class="tooltip-text" title="Janata Dal">JD</span>!}: [+ jd_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+{!<span class="tooltip-text" title="Communist Party of India (Marxist) and Communist Party of India">CPIM</span>!}: [+ cpim_relation : relationships +]
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
+{!<span class="tooltip-text" title="Telugu Desam Party">TDP</span>!}: [+ tdp_relation : relationships +]
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
+{!<span class="tooltip-text" title="Bharatiya Janata Party">BJP</span>!}: [+ bjp_relation : relationships +]
 
-= Internal Factions of the SPD
+{!<span class="tooltip-text" title="Fringe Communist Parties">LF</span>!}: [+ lf_relation : relationships +]
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
+= Internal Factions of the INC
+
+{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the CPIM.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
 {!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
 
@@ -119,15 +123,15 @@ if (Q.sa_strength) {
 
 = Paramilitaries
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the INC.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
 
 Reichsbanner Militarization: [+ rb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the CPIM.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
 
 RFB Militarization: [+ rfb_militancy : militancy +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the TDP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
 
 Stahlhelm Militarization: [+ sh_militancy : militancy +]
 
@@ -145,7 +149,7 @@ Prussian police: [+ prussian_police_strength +] thousand members.
 
 Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
 
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+[? if inc_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
 
 @polls
 on-arrival: {!
@@ -158,36 +162,38 @@ Q.socialism_disp = Math.round(Q.socialism);
 
 (if the election were to be held now):
 
-SPD: [+ spd_votes +]%
+INC: [+ inc_votes +]%
 
-[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
+[? if csp_formed: CSP: [+ csp_votes +]% ?]
 
-Z + BVP: [+ z_votes +]%
+CPIML: [+ cpiml_votes +]%
 
-KPD: [+ kpd_votes +]%
+CPIM: [+ cpim_votes +]%
 
-[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
+[? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ dmk_votes +]%
 
-DVP: [+ dvp_votes +]%
+JD: [+ jd_votes +]%
 
-DNVP: [+ dnvp_votes +]%
+TDP: [+ tdp_votes +]%
 
-NSDAP: [+ nsdap_votes +]%
+BJP: [+ bjp_votes +]%
+
+LF: [+ lf_votes +]%
 
 Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: SPD: [+ workers_spd_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, NSDAP: [+ workers_nsdap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: INC: [+ workers_inc_display +]%, CPIML: [+ workers_cpiml_display +]%, CPIM: [+ workers_cpim_display +]%, [? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ workers_dmk_display +]%, JD: [+ workers_jd_display +]%; TDP: [+ workers_tdp_display +]%, BJP: [+ workers_bjp_display +]%, Others: [+ workers_other_display +]%, LF: [+ workers_lf_display +]% [? if csp_formed: CSP: [+ workers_csp_display +]% ?]
 
-New Middle Class: SPD: [+ new_middle_spd_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, NSDAP: [+ new_middle_nsdap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: INC: [+ new_middle_inc_display +]%, CPIML: [+ new_middle_cpiml_display +]%, CPIM: [+ new_middle_cpim_display +]%, [? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ new_middle_dmk_display +]%, JD: [+ new_middle_jd_display +]%; TDP: [+ new_middle_tdp_display +]%, BJP: [+ new_middle_bjp_display +]%, Others: [+ new_middle_other_display +]%, LF: [+ new_middle_lf_display +]% [? if csp_formed: CSP: [+ new_middle_csp_display +]% ?]
 
-Old Middle Class: SPD: [+ old_middle_spd_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, NSDAP: [+ old_middle_nsdap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: INC: [+ old_middle_inc_display +]%, CPIML: [+ old_middle_cpiml_display +]%, CPIM: [+ old_middle_cpim_display +]%, [? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ old_middle_dmk_display +]%, JD: [+ old_middle_jd_display +]%; TDP: [+ old_middle_tdp_display +]%, BJP: [+ old_middle_bjp_display +]%, Others: [+ old_middle_other_display +]%, LF: [+ old_middle_lf_display +]% [? if csp_formed: CSP: [+ old_middle_csp_display +]% ?]
 
-Rural: SPD: [+ rural_spd_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, NSDAP: [+ rural_nsdap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: INC: [+ rural_inc_display +]%, CPIML: [+ rural_cpiml_display +]%, CPIM: [+ rural_cpim_display +]%, [? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ rural_dmk_display +]%, JD: [+ rural_jd_display +]%; TDP: [+ rural_tdp_display +]%, BJP: [+ rural_bjp_display +]%, Others: [+ rural_other_display +]%, LF: [+ rural_lf_display +]% [? if csp_formed: CSP: [+ rural_csp_display +]% ?]
 
-Unemployed: SPD: [+ unemployed_spd_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, NSDAP: [+ unemployed_nsdap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: INC: [+ unemployed_inc_display +]%, CPIML: [+ unemployed_cpiml_display +]%, CPIM: [+ unemployed_cpim_display +]%, [? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ unemployed_dmk_display +]%, JD: [+ unemployed_jd_display +]%; TDP: [+ unemployed_tdp_display +]%, BJP: [+ unemployed_bjp_display +]%, Others: [+ unemployed_other_display +]%, LF: [+ unemployed_lf_display +]% [? if csp_formed: CSP: [+ unemployed_csp_display +]% ?]
 
-Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, NSDAP: [+ catholics_nsdap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: INC: [+ catholics_inc_display +]%, CPIML: [+ catholics_cpiml_display +]%, CPIM: [+ catholics_cpim_display +]%, [? if not dmk_name: DMK?][? if dmk_name != 0 : [+ dmk_name +]?]: [+ catholics_dmk_display +]%, JD: [+ catholics_jd_display +]%; TDP: [+ catholics_tdp_display +]%, BJP: [+ catholics_bjp_display +]%, Others: [+ catholics_other_display +]%, LF: [+ catholics_lf_display +]% [? if csp_formed: CSP: [+ catholics_csp_display +]% ?]
 
 Support for the Republic: [+ pro_republic_disp +]%
